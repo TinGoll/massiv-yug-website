@@ -1,0 +1,119 @@
+$active_link_color: #ff0157;
+$decor_span_color: #ff0157;
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 40px 100px;
+  z-index: 10000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.5s;
+  .logo {
+    color: #fff;
+    font-weight: 700;
+    font-size: 2em;
+    text-decoration: none;
+    span {
+      color: $decor_span_color;
+      font-size: 1.2em;
+    }
+  }
+  .navigation {
+    position: relative;
+    display: flex;
+    li {
+      list-style: none;
+      margin-left: 20px;
+      a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 1.1em;
+        font-weight: 400;
+        text-transform: uppercase;
+        &:hover {
+          color: $active_link_color;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1200px) {
+    padding: 40px 70px;
+  }
+
+  @media (max-width: 991px) {
+    padding: 10px 20px;
+    .navigation {
+      display: none;
+      li {
+        margin-left: 0;
+        a {
+          color: #111;
+          font-size: 1.6em;
+          font-weight: 400;
+        }
+      }
+    }
+    .navigation.active {
+      width: 100%;
+      height: calc(100% - 68px);
+      position: fixed;
+      top: 68px;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: #fff;
+      line-height: 2.5em;
+    }
+
+    .menuToggle {
+      position: relative;
+      width: 50px;
+      height: 50px;
+      background: url(../../img/menu.png);
+      background-size: 50px;
+      background-repeat: no-repeat;
+      background-position: center;
+      cursor: pointer;
+    }
+    .menuToggle.active {
+      background: url(../../img/close.png);
+      background-size: 40px;
+      background-repeat: no-repeat;
+      background-position: center;
+      cursor: pointer;
+    }
+  }
+}
+
+header.sticky {
+  background: #fff;
+  padding: 10px 100px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  .logo {
+    color: #111;
+  }
+  .navigation {
+    li {
+      a {
+        color: #111;
+        &:hover {
+          color: $active_link_color;
+        }
+      }
+    }
+  }
+  @media (max-width: 1200px) {
+    padding: 10px 70px;
+  }
+
+  @media (max-width: 991px) {
+    padding: 10px 20px;
+  }
+}
